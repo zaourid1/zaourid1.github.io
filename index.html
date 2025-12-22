@@ -1,36 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Zineb | CS Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zineb Aourid </title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <h1>Zineb Aourid</h1>
-    <p>Computer Science Student | ML + Software</p>
-  </header>
+  <main class="wrap">
+    <header class="hero">
+      <img class="avatar" src="assets/profile.jpg" alt="Profile photo" />
+      <h1>Zineb Aourid/h1>
 
-  <section>
-    <h2>Projects</h2>
-    <ul>
-      <li>
-        <strong>Hospital Readmission Predictor</strong><br>
-        ML model using EHR data
-      </li>
-      <li>
-        <strong>PodUp</strong><br>
-        Group accountability app
-      </li>
-    </ul>
-  </section>
+      <p class="bio">
+        Hi, I’m Zineb Aourid. I’m a Computer Science student interested in
+        software engineering + ML (health care/biomedical focus).
+      </p>
 
-  <footer>
-    <p>
-      <a href="https://github.com/zaourid1">GitHub</a> |
-      <a href="https://linkedin.com/in/zaourid">LinkedIn</a>
-    </p>
-  </footer>
+      <div class="links">
+        <a href="https://github.com/zaourid1" target="_blank" rel="noreferrer">GitHub</a>
+        <span class="dot">•</span>
+        <a href="https://www.linkedin.com/in/zaourid" target="_blank" rel="noreferrer">LinkedIn</a>
+        <span class="dot">•</span>
+        <a href="mailto:zineb.aourid1@gmail.com">Email</a>
+      </div>
+
+      <nav class="tabs">
+        <button class="tab active" data-tab="projects">Projects</button>
+        <button class="tab" data-tab="papers">Papers</button>
+        <button class="tab" data-tab="blog">Blog</button>
+      </nav>
+    </header>
+
+    <section id="projects" class="panel show">
+      <h2>Projects</h2>
+
+      <article class="card">
+        <h3>Project 1 Title</h3>
+        <p>1–2 lines on what it does, tech stack, and why it matters.</p>
+        <div class="cardlinks">
+          <a href="#" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="#" target="_blank" rel="noreferrer">Demo</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Project 2 Title</h3>
+        <p>Quick description. Keep it short and clear.</p>
+        <div class="cardlinks">
+          <a href="#" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </article>
+    </section>
+
+    <section id="papers" class="panel">
+      <h2>Papers</h2>
+      <p>If you don’t have papers yet, you can list: proposals, writeups, posters, or “in progress”.</p>
+
+      <article class="card">
+        <h3>Writeup / Poster Title</h3>
+        <p>Short summary + link.</p>
+        <div class="cardlinks">
+          <a href="#" target="_blank" rel="noreferrer">PDF</a>
+        </div>
+      </article>
+    </section>
+
+    <section id="blog" class="panel">
+      <h2>Blog</h2>
+      <p>Optional. You can add a few posts as simple links.</p>
+
+      <ul class="list">
+        <li><a href="#" target="_blank" rel="noreferrer">Post title #1</a> <span class="muted">— Dec 2025</span></li>
+        <li><a href="#" target="_blank" rel="noreferrer">Post title #2</a> <span class="muted">— Nov 2025</span></li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      © <span id="year"></span> Your Name
+    </footer>
+  </main>
+
+  <script>
+    // Tabs
+    const tabs = document.querySelectorAll(".tab");
+    const panels = document.querySelectorAll(".panel");
+
+    tabs.forEach(btn => {
+      btn.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        btn.classList.add("active");
+
+        const id = btn.dataset.tab;
+        panels.forEach(p => p.classList.remove("show"));
+        document.getElementById(id).classList.add("show");
+      });
+    });
+
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
