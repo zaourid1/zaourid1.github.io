@@ -14,7 +14,7 @@
   <main class="wrap">
     <header class="hero">
       <div class="avatar-ring">
-        <img class="avatar" src="9DE257F3-4B3C-4F43-B9E2-2A1570487AA3_1_105_c.jpeg" alt="Zineb Aourid" />
+        <img class="avatar" src="assets/profile.jpg" alt="Zineb Aourid" />
       </div>
 
       <h1>Zineb Aourid</h1>
@@ -35,7 +35,7 @@
           LinkedIn
         </a>
         <span class="dot"></span>
-        <a href="/cdn-cgi/l/email-protection#5f2536313a3d713e302a2d363b6e1f38323e3633713c3032">
+        <a href="mailto:zineb.aourid1@gmail.com">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           Email
         </a>
@@ -144,21 +144,19 @@
     </footer>
   </main>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    const tabs = document.querySelectorAll(".tab");
-    const panels = document.querySelectorAll(".panel");
-
-    tabs.forEach(btn => {
-      btn.addEventListener("click", () => {
-        tabs.forEach(t => t.classList.remove("active"));
+  <script>
+    document.querySelectorAll(".tab").forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        document.querySelectorAll(".tab").forEach(function(t) { t.classList.remove("active"); });
         btn.classList.add("active");
-        const id = btn.dataset.tab;
-        panels.forEach(p => p.classList.remove("show"));
-        const target = document.getElementById(id);
-        target.classList.add("show");
-        // Animate cards in
-        target.querySelectorAll(".card, .blog-item").forEach((el, i) => {
-          el.style.animationDelay = `${i * 60}ms`;
-          el.classList.remove("fade-in");
-          void el.offsetWidth;
-          el.classLi
+
+        var id = btn.getAttribute("data-tab");
+        document.querySelectorAll(".panel").forEach(function(p) { p.classList.remove("show"); });
+        document.getElementById(id).classList.add("show");
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
